@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>赛罗生物医药 | 生命科学 · 教育科研</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--clr-bg:#fafafa;--clr-white:#fff;--clr-navy:#0d1b2a;--clr-navy-light:#1b2d44;--clr-teal:#2d8f8c;--clr-teal-dim:#e8f4f3;--clr-text:#1a1a2e;--clr-text-light:#6b7280;--clr-border:#e5e7eb;--clr-cream:#f9f7f4;--ff-serif:"Noto Serif SC","Playfair Display",Georgia,serif;--ff-sans:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;--max-w:1100px;--header-h:72px;--transition:400ms cubic-bezier(.22,1,.36,1)}
+html{scroll-behavior:smooth;scroll-padding-top:var(--header-h)}
+body{font-family:var(--ff-sans);color:var(--clr-text);background:var(--clr-bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--ff-serif);font-weight:600;line-height:1.3}
+.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--clr-teal);margin-bottom:10px}
+.section-title{font-size:clamp(26px,3.8vw,40px);margin-bottom:14px;color:var(--clr-navy)}
+.section-desc{font-size:17px;color:var(--clr-text-light);line-height:1.7;max-width:560px}
+.section{padding:90px 0}
+@media(max-width:768px){.section{padding:60px 0}}
+.header{position:fixed;top:0;left:0;width:100%;height:var(--header-h);z-index:100;transition:var(--transition)}
+.header.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--clr-border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-img{height:32px;width:auto}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{font-size:14px;font-weight:500;color:rgba(255,255,255,.85);transition:var(--transition);position:relative;padding:4px 0}
+.nav a::after{content:"";position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--clr-teal);transition:var(--transition)}
+.nav a:hover::after{width:100%}
+.nav a:hover{color:#fff}
+.header.scrolled .nav a{color:var(--clr-text)}
+.header.scrolled .nav a:hover{color:var(--clr-teal)}
+.nav .btn-nav{background:var(--clr-teal);color:#fff!important;padding:9px 22px;border-radius:6px;font-weight:600;font-size:13px}
+.nav .btn-nav::after{display:none}
+.nav .btn-nav:hover{background:var(--clr-navy);color:#fff!important}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.menu-toggle span{width:22px;height:2px;background:#fff;border-radius:2px;transition:var(--transition)}
+.header.scrolled .menu-toggle span{background:var(--clr-navy)}
+@media(max-width:768px){
+.nav{position:fixed;top:var(--header-h);left:0;width:100%;background:var(--clr-white);flex-direction:column;padding:28px 24px;gap:16px;transform:translateY(-120%);opacity:0;transition:var(--transition);box-shadow:0 10px 40px rgba(0,0,0,.08)}
+.nav.open{transform:translateY(0);opacity:1}
+.nav a{color:var(--clr-text)!important}
+.menu-toggle{display:flex}}
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:var(--clr-navy)}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,var(--clr-navy) 30%,var(--clr-navy-light) 70%,var(--clr-teal) 130%)}
+.hero-bg .grain{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E")}
+.hero-content{position:relative;z-index:2;padding:100px 0 60px;max-width:660px}
+.hero-logo{height:56px;width:auto;margin-bottom:36px}
+.hero h1{font-size:clamp(30px,5vw,54px);color:var(--clr-white);margin-bottom:20px;line-height:1.15;font-weight:600}
+.hero h1 span{color:var(--clr-teal)}
+.hero p{font-size:clamp(15px,1.2vw,18px);color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:36px;max-width:500px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-actions .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;border-radius:6px;font-family:var(--ff-sans);font-size:14px;font-weight:600;cursor:pointer;transition:var(--transition);border:none;line-height:1}
+.hero-actions .btn-primary{background:var(--clr-teal);color:#fff}
+.hero-actions .btn-primary:hover{background:#257a78;transform:translateY(-1px)}
+.hero-actions .btn-outline{background:transparent;color:rgba(255,255,255,.85);border:1.5px solid rgba(255,255,255,.35)}
+.hero-actions .btn-outline:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.06)}
+.hero-stats{display:flex;gap:40px;margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.07)}
+.hero-stat h3{font-size:22px;font-family:var(--ff-serif);color:var(--clr-white)}
+.hero-stat p{font-size:12px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+@media(max-width:768px){
+.hero{min-height:85vh;align-items:flex-end}
+.hero-content{padding:80px 0 36px}
+.hero-logo{height:44px;margin-bottom:28px}
+.hero-stats{flex-wrap:wrap;gap:20px}
+.hero-stat{flex:1;min-width:90px}}
+.about{background:var(--clr-white);padding:90px 0}
+.about-inner{max-width:780px;margin:0 auto}
+.about-inner p{font-size:15px;color:var(--clr-text-light);line-height:1.9;margin-bottom:18px}
+.about-inner p b{color:var(--clr-navy)}
+.about-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px;padding-top:28px;border-top:1px solid var(--clr-border)}
+.about-item{display:flex;gap:12px;align-items:flex-start}
+.about-item .dot{width:6px;height:6px;border-radius:50%;background:var(--clr-teal);margin-top:8px;flex-shrink:0}
+.about-item p{font-size:14px;color:var(--clr-text-light);margin:0}
+.about-item strong{color:var(--clr-navy);display:block;margin-bottom:1px;font-size:14px}
+@media(max-width:640px){.about-grid{grid-template-columns:1fr}}
+.philosophy{background:var(--clr-cream);padding:90px 0}
+.phil-header{text-align:center;margin-bottom:48px}
+.phil-header .section-desc{margin:0 auto}
+.phil-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.phil-card{background:var(--clr-white);border-radius:8px;padding:32px 28px;transition:var(--transition);border:1px solid var(--clr-border)}
+.phil-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.04);border-color:var(--clr-teal)}
+.phil-card .num{font-family:var(--ff-serif);font-size:28px;font-weight:700;color:var(--clr-teal);margin-bottom:6px;line-height:1}
+.phil-card h4{font-size:15px;font-weight:600;margin-bottom:8px;letter-spacing:.05em}
+.phil-card p{font-size:14px;color:var(--clr-text-light);line-height:1.8}
+@media(max-width:640px){.phil-grid{grid-template-columns:1fr}}
+.services{background:var(--clr-white);padding:90px 0}
+.services-header{text-align:center;margin-bottom:44px}
+.services-header .section-desc{margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.service-card{background:var(--clr-bg);border-radius:8px;padding:32px 28px;transition:var(--transition);border:1px solid transparent}
+.service-card:hover{background:var(--clr-white);border-color:var(--clr-border);box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.service-card .icon{font-size:24px;margin-bottom:14px}
+.service-card h3{font-size:16px;margin-bottom:8px}
+.service-card p{font-size:14px;color:var(--clr-text-light);line-height:1.7}
+@media(max-width:768px){.services-grid{grid-template-columns:1fr}}
+.contact{background:var(--clr-cream);padding:90px 0}
+.contact-header{text-align:center;margin-bottom:44px}
+.contact-header .section-desc{margin:0 auto}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.contact-card{background:var(--clr-white);border-radius:8px;padding:32px;border:1px solid var(--clr-border);transition:var(--transition)}
+.contact-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.04)}
+.contact-card .tag{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--clr-teal);margin-bottom:14px;display:block}
+.contact-card h4{font-size:15px;margin-bottom:14px;font-weight:600}
+.contact-card p{font-size:14px;color:var(--clr-text-light);line-height:2}
+.contact-card p strong{color:var(--clr-navy);min-width:52px;display:inline-block}
+.contact-card .sep{display:block;border-top:1px solid var(--clr-border);margin:8px 0}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
+.cta{background:var(--clr-navy);text-align:center;padding:80px 0;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.cta-inner{position:relative;z-index:1;max-width:520px;margin:0 auto}
+.cta h2{font-size:clamp(24px,3vw,34px);color:var(--clr-white);margin-bottom:12px;font-weight:600}
+.cta p{color:rgba(255,255,255,.55);font-size:16px;margin-bottom:28px}
+.cta .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;border-radius:6px;font-family:var(--ff-sans);font-size:14px;font-weight:600;cursor:pointer;transition:var(--transition);border:none;line-height:1;background:var(--clr-teal);color:#fff}
+.cta .btn-primary:hover{background:var(--clr-white);color:var(--clr-navy)}
+.footer{background:var(--clr-navy);border-top:1px solid rgba(255,255,255,.05);padding:52px 0 28px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.footer-brand .logo-img{height:28px;margin-bottom:12px}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.7;max-width:280px}
+.footer-col h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.35);margin-bottom:16px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.55);padding:4px 0;transition:var(--transition)}
+.footer-col a:hover{color:var(--clr-teal)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);font-size:12px;color:rgba(255,255,255,.3);flex-wrap:wrap;gap:8px}
+.footer-bottom a{color:rgba(255,255,255,.3);transition:var(--transition)}
+.footer-bottom a:hover{color:var(--clr-teal)}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:24px}.footer-bottom{flex-direction:column;text-align:center}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up-d1{transition-delay:.1s}
+.fade-up-d2{transition-delay:.2s}
+.fade-up-d3{transition-delay:.3s}
+.fade-up-d4{transition-delay:.4s}
+</style>
+</head>
+<body>
+<header class="header" id="header">
+<div class="container header-inner">
+<a href="#" class="logo"><img src="logo.png" alt="赛罗生物医药" class="logo-img"></a>
+<nav class="nav" id="nav">
+<a href="#about">关于我们</a>
+<a href="#philosophy">企业理念</a>
+<a href="#services">主营方向</a>
+<a href="#contact" class="btn-nav">联系我们</a>
+</nav>
+<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</header>
+<section class="hero" id="hero">
+<div class="hero-bg"><div class="grain"></div></div>
+<div class="container">
+<div class="hero-content">
+<img src="logo.png" alt="赛罗生物医药" class="hero-logo">
+<h1>关注生命，从服务生物实验教学<br>促进生命科学<span>基础研究</span>开始</h1>
+<p>赛罗生物医药致力于为基础教育提供有价值的生物学实验教学产品，为高校和科研院所提供高品质研究试剂，为了解生命、提高生命质量而奋斗。</p>
+<div class="hero-actions">
+<a href="#about" class="btn btn-primary">了解我们</a>
+<a href="#contact" class="btn btn-outline">联系方式</a>
+</div>
+<div class="hero-stats">
+<div class="hero-stat"><h3>2022</h3><p>年成立</p></div>
+<div class="hero-stat"><h3>研发+生产</h3><p>双基地运营</p></div>
+<div class="hero-stat"><h3>高校合作</h3><p>产学研一体</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="about" id="about">
+<div class="container">
+<div class="about-inner fade-up">
+<p class="section-label">关于我们</p>
+<h2 class="section-title">深耕生物科技，赋能教育科研</h2>
+<p><b>甘肃赛罗莱替可斯生物医药科技有限公司</b>（赛罗生物医药，天水），成立于2022年，与<b>甘肃瑟罗莱替可生物医药科技有限公司</b>（秦安）为兄弟公司，前者侧重研发，后者侧重生产。联手推进中学生物实验教学产品与生命科学研究试剂开发。</p>
+<p>两公司联手追求同一目标——于基础教育，为中学生物学实验教学提供有价值的产品；于高校和科研院所，促进生命科学基础研究发展，为了解生命、提高生命质量而奋斗。</p>
+<div class="about-grid">
+<div class="about-item"><div class="dot"></div><div><strong>研发基地</strong><p>甘肃省天水市秦州区</p></div></div>
+<div class="about-item"><div class="dot"></div><div><strong>生产基地</strong><p>甘肃省天水市秦安县</p></div></div>
+<div class="about-item"><div class="dot"></div><div><strong>成立时间</strong><p>2022年12月9日</p></div></div>
+<div class="about-item"><div class="dot"></div><div><strong>企业类型</strong><p>生物医药科技研发与生产</p></div></div>
+</div>
+</div>
+</div>
+</section>
+<section class="philosophy" id="philosophy">
+<div class="container">
+<div class="phil-header fade-up">
+<p class="section-label">企业理念</p>
+<h2 class="section-title">以科技为驱动，以生命为初心</h2>
+<p class="section-desc">四项核心理念引领企业发展，追求科学、产业与社会的良好平衡。</p>
+</div>
+<div class="phil-grid">
+<div class="phil-card fade-up fade-up-d1"><div class="num">01</div><h4>发展理念</h4><p>与高校科研院所深度合作，持续关注生命科学教育发展动态，开发实验科教产品，赋能生物技术产业，促进人体健康。</p></div>
+<div class="phil-card fade-up fade-up-d2"><div class="num">02</div><h4>环保理念</h4><p>坚决贯彻国家绿色发展理念，有污染的产品不生产，非环保的工艺不实施，追求生产过程零排放。</p></div>
+<div class="phil-card fade-up fade-up-d3"><div class="num">03</div><h4>服务理念</h4><p>探索实施有价值的生物学实验培训项目，寻求公司利益、社会效益和科学研究三者之间的良好平衡。</p></div>
+<div class="phil-card fade-up fade-up-d4"><div class="num">04</div><h4>公司愿景</h4><p>立足生物医药，探索生物制造，繁荣生物经济，促进人体健康。</p></div>
+</div>
+</div>
+</section>
+<section class="services" id="services">
+<div class="container">
+<div class="services-header fade-up">
+<p class="section-label">主营方向</p>
+<h2 class="section-title">研发驱动 · 双线布局</h2>
+<p class="section-desc">聚焦基础教育教学产品与生命科学研究试剂两大核心领域。</p>
+</div>
+<div class="services-grid">
+<div class="service-card fade-up fade-up-d1"><div class="icon">&#127891;</div><h3>生物学实验教学产品</h3><p>为中学生物学实验教学提供有价值的产品，开发实验科教产品，助力学生实践创新能力培养。</p></div>
+<div class="service-card fade-up fade-up-d2"><div class="icon">&#128300;</div><h3>研究试剂与生物医药</h3><p>深度开发陆地与海洋生物资源，提供高品质研究试剂和生物医药产品，赋能生物技术产业。</p></div>
+<div class="service-card fade-up fade-up-d3"><div class="icon">&#129514;</div><h3>生物技术产业转化</h3><p>与高校和科研院所深度合作，将前沿科研成果转化为实际应用，繁荣生物经济。</p></div>
+<div class="service-card fade-up fade-up-d4"><div class="icon">&#127973;</div><h3>生命科学基础研究</h3><p>持续关注生命科学及其教育发展动态，以探索生命活动规律、促进人体健康为最终奋斗目标。</p></div>
+</div>
+</div>
+</section>
+<section class="contact" id="contact">
+<div class="container">
+<div class="contact-header fade-up">
+<p class="section-label">联系我们</p>
+<h2 class="section-title">期待与您携手共进</h2>
+<p class="section-desc">欢迎高校科研团队、生物教学机构与产业合作伙伴随时联系。</p>
+</div>
+<div class="contact-grid">
+<div class="contact-card fade-up fade-up-d1">
+<span class="tag">研发基地</span>
+<h4>甘肃赛罗莱替可斯生物医药科技有限公司</h4>
+<p><strong>地址</strong>甘肃省天水市秦州区上亿广场1A二楼</p>
+<p><strong>邮编</strong>741001</p>
+<div class="sep"></div>
+<p><strong>电话</strong>0938-8528228</p>
+<p><strong>联系人</strong>焦敏强</p>
+<p><strong>手机</strong>15349461441</p>
+<p><strong>邮箱</strong>745079838@qq.com</p>
+</div>
+<div class="contact-card fade-up fade-up-d2">
+<span class="tag">生产基地</span>
+<h4>甘肃瑟罗莱替可生物医药科技有限公司</h4>
+<p><strong>地址</strong>甘肃省天水市秦安县莲花镇上河村301号</p>
+<p><strong>邮编</strong>741613</p>
+<div class="sep"></div>
+<p><strong>电话</strong>0938-6793618</p>
+<p><strong>联系人</strong>焦敏强</p>
+<p><strong>手机</strong>15349461441</p>
+<p><strong>邮箱</strong>745079838@qq.com</p>
+</div>
+</div>
+</div>
+</section>
+<section class="cta">
+<div class="cta-inner fade-up">
+<p class="section-label" style="color:var(--clr-teal)">加入我们</p>
+<h2>合作共赢，探索生命科学无限可能</h2>
+<p>与全国高校和科研院所携手，共同推动生命科学教育和研究发展。</p>
+<a href="#" class="btn-primary">立即联系 &#8594;</a>
+</div>
+</section>
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<img src="logo.png" alt="赛罗生物医药" class="logo-img">
+<p>立足生物医药，探索生物制造，繁荣生物经济，促进人体健康。</p>
+</div>
+<div class="footer-col"><h4>关于</h4><a href="#about">公司简介</a><a href="#philosophy">企业理念</a><a href="#services">主营方向</a></div>
+<div class="footer-col"><h4>研发基地</h4><a href="#">天水市秦州区上亿广场</a><a href="#">0938-8528228</a></div>
+<div class="footer-col"><h4>生产基地</h4><a href="#">秦安县莲花镇上河村</a><a href="#">0938-6793618</a></div>
+</div>
+<div class="footer-bottom">
+<span>&copy; 2024-2025 甘肃赛罗莱替可斯生物医药科技有限公司</span>
+<a href="http://beian.miit.gov.cn/" target="_blank">陇ICP备2025021851号-2</a>
+</div>
+</div>
+</footer>
+<script>
+const m=document.getElementById('menuToggle'),n=document.getElementById('nav');
+m.addEventListener('click',()=>n.classList.toggle('open'));
+document.querySelectorAll('.nav a').forEach(l=>l.addEventListener('click',()=>n.classList.remove('open')));
+const hd=document.getElementById('header');
+window.addEventListener('scroll',()=>{window.scrollY>50?hd.classList.add('scrolled'):hd.classList.remove('scrolled')},{passive:true});
+const obs=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(e=>obs.observe(e));
+</script>
+</body>
+</html>
