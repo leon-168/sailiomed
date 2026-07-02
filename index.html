@@ -134,6 +134,20 @@ h1,h2,h3{font-family:var(--ff-serif);font-weight:600;line-height:1.3}
 .fade-up-d2{transition-delay:.2s}
 .fade-up-d3{transition-delay:.3s}
 .fade-up-d4{transition-delay:.4s}
+.products{padding:90px 0;background:var(--clr-white)}
+.products-header{text-align:center;margin-bottom:44px}
+.products-header .section-desc{margin:0 auto}
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:40px}
+.product-card{display:flex;border-radius:8px;overflow:hidden;border:1px solid var(--clr-border);transition:var(--transition);background:var(--clr-white)}
+.product-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.06)}
+.product-img{width:120px;min-height:140px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.product-icon{font-size:36px}
+.product-info{padding:20px 24px;display:flex;flex-direction:column;justify-content:center}
+.product-info h4{font-size:15px;font-weight:600;margin-bottom:6px}
+.product-info p{font-size:13px;color:var(--clr-text-light);line-height:1.7}
+.products-footer{text-align:center}
+@media(max-width:640px){.products-grid{grid-template-columns:1fr}.product-img{width:100px}}
+
 </style>
 </head>
 <body>
@@ -143,6 +157,7 @@ h1,h2,h3{font-family:var(--ff-serif);font-weight:600;line-height:1.3}
 <nav class="nav" id="nav">
 <a href="#about">关于我们</a>
 <a href="#philosophy">企业理念</a>
+<a href="#products">公司产品</a>
 <a href="#services">主营方向</a>
 <a href="#contact" class="btn-nav">联系我们</a>
 </nav>
@@ -196,6 +211,50 @@ h1,h2,h3{font-family:var(--ff-serif);font-weight:600;line-height:1.3}
 <div class="phil-card fade-up fade-up-d2"><div class="num">02</div><h4>环保理念</h4><p>坚决贯彻国家绿色发展理念，有污染的产品不生产，非环保的工艺不实施，追求生产过程零排放。</p></div>
 <div class="phil-card fade-up fade-up-d3"><div class="num">03</div><h4>服务理念</h4><p>探索实施有价值的生物学实验培训项目，寻求公司利益、社会效益和科学研究三者之间的良好平衡。</p></div>
 <div class="phil-card fade-up fade-up-d4"><div class="num">04</div><h4>公司愿景</h4><p>立足生物医药，探索生物制造，繁荣生物经济，促进人体健康。</p></div>
+</div>
+</div>
+</section>
+
+</section>
+<section class="products" id="products">
+<div class="container">
+<div class="products-header fade-up">
+<p class="section-label">公司产品</p>
+<h2 class="section-title">高品质产品，赋能教育科研</h2>
+<p class="section-desc">专注于生物技术产品的研发与生产，为教育与科研领域提供全方位的产品支持。</p>
+</div>
+<div class="products-grid">
+<div class="product-card fade-up fade-up-d1">
+<div class="product-img" style="background:linear-gradient(135deg,#e8f4f3,#b8dcd9)"><div class="product-icon">&#127891;</div></div>
+<div class="product-info">
+<h4>中学生物实验教学产品</h4>
+<p>涵盖分子生物学、细胞生物学、遗传学等多个学科领域，为中学实验教学提供标准化的实验材料和教学工具。</p>
+</div>
+</div>
+<div class="product-card fade-up fade-up-d2">
+<div class="product-img" style="background:linear-gradient(135deg,#fce8ed,#f5d0d8)"><div class="product-icon">&#128300;</div></div>
+<div class="product-info">
+<h4>高品质研究试剂</h4>
+<p>涵盖细胞培养试剂、分子生物学试剂、蛋白研究试剂等，满足高校和科研院所的日常科研需求。</p>
+</div>
+</div>
+<div class="product-card fade-up fade-up-d3">
+<div class="product-img" style="background:linear-gradient(135deg,#e0e7f9,#c7d2f0)"><div class="product-icon">&#129514;</div></div>
+<div class="product-info">
+<h4>生物医药产品</h4>
+<p>深度开发陆地与海洋生物资源，提供高品质生物医药产品，赋能生物技术产业。</p>
+</div>
+</div>
+<div class="product-card fade-up fade-up-d4">
+<div class="product-img" style="background:linear-gradient(135deg,#fef3d5,#fce8b0)"><div class="product-icon">&#127973;</div></div>
+<div class="product-info">
+<h4>生物资源开发与利用</h4>
+<p>利用生物技术深度开发陆地与海洋生物资源，为科研与产业提供源头创新产品。</p>
+</div>
+</div>
+</div>
+<div class="products-footer fade-up">
+<a href="https://shop.slbiom.com/pr.jsp?mid=316&prgmid=316" target="_blank" class="btn btn-outline-dark">查看全部产品 &#8594;</a>
 </div>
 </div>
 </section>
